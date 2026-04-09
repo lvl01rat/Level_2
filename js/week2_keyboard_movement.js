@@ -6,6 +6,7 @@ var timer;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
 var player;
+var ball;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -14,6 +15,10 @@ var player;
 	//Instantiate the Player
 	player = new GameObject();
 	player.x = 50;
+	ball = new GameObject();
+	ball.vx = 4;
+	ball.vy = 4;
+	ball.color = "red"
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
@@ -29,16 +34,42 @@ function animate()
 	if(w && player.y - player.height/2 > 0)
 	{
 		console.log("Moving Down");
-		player.y += -2;
+		player.y += -4;
 	}
 	if(s && player.y + player.height/2 < canvas.height)
 	{
 		console.log("Moving Up");
-		player.y += 2;
+		player.y += 4;
+	}
+
+	
+	ball.x += ball.vx;
+	ball.y += ball.vy;
+	if(ball.x + ball.width/2 > canvas.width) {
+
+		ball.vx = -ball.vx
+	}
+
+	if(ball.y + ball.width/2 > canvas.height) {
+
+		ball.vy = -ball.vy
+	}
+
+	if(ball.x - ball.width/2 < 0) {
+
+		ball.vx = -ball.vx
+	}
+
+	if(ball.y - ball.height/2 < 0) {
+
+		ball.vy = -ball.vy
 	}
 	
-	
+	if(ball.hitTestObject(player)) {
+		ball.vx = -ball.vx
+	}
 	//Update the Screen
 	player.drawRect();
+	ball.drawCircle();
 }
 
