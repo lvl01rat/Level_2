@@ -7,6 +7,8 @@ var timer;
 var interval = 1000/60;
 var player;
 var ball;
+var cp;
+var cp2;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -16,9 +18,18 @@ var ball;
 	player = new GameObject();
 	player.x = 50;
 	ball = new GameObject();
-	ball.vx = 4;
-	ball.vy = 4;
+	cp = new GameObject();
+	cp.width = 5;
+	cp.color = "black";
+	cp2 = new GameObject();
+	cp2.width = 5;
+	cp2.color = "black";
+	
+	ball.vx = -4;
+	ball.vy = 0;
+	ball.height = ball.width;
 	ball.color = "red"
+	
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
@@ -43,8 +54,7 @@ function animate()
 	}
 
 	
-	ball.x += ball.vx;
-	ball.y += ball.vy;
+	
 	if(ball.x + ball.width/2 > canvas.width) {
 
 		ball.vx = -ball.vx
@@ -68,10 +78,33 @@ function animate()
 	}
 	
 	if(ball.hitTestObject(player)) {
-		ball.vx = -ball.vx
+		if(ball.y < player.y - player.height/3) {
+			ball.vy = 4
+			ball.vy = -ball.vy
+			ball.vx = -ball.vx
+		}
+		if(ball.y > player.y - player.height/3){
+			ball.vx = -ball.vx
+		}
+		if(ball.y > player.y + player.height/3){
+			ball.vy = 4
+			ball.vy = ball.vy
+			ball.vx = ball.vx
+		}
 	}
+
+	ball.x += ball.vx;
+	ball.y += ball.vy;
+	
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
+
+	// cp.x = ball.x;// - ball.width;// player.x;
+	// cp.y = ball.y - ball.height/2;//player.y + player.height/6;
+	// cp.drawCircle()
+	// cp.x = player.x;// player.x;
+	// cp.y = player.y + player.height/6;
+	// cp.drawCircle()
 }
 
