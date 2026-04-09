@@ -57,7 +57,9 @@ function animate()
 
 	if(ball.x - ball.width/2 < 0) {
 
-		ball.vx = -ball.vx
+		ball.x = 500
+		ball.y = 450
+		console.log("how did you let that happen???")
 	}
 
 	if(ball.y - ball.height/2 < 0) {
