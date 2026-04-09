@@ -17,6 +17,8 @@ var player;
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
+	
+
 function animate()
 {
 	//Erase the Screen
@@ -24,16 +26,17 @@ function animate()
 	
 	
 	//Move the Player to the right
-	if(s)
+	if(w && player.y - player.height/2 > 0)
 	{
-		console.log("Moving Right");
-		player.y += 2;
-	}
-	if(w)
-	{
-		console.log("Moving Left");
+		console.log("Moving Down");
 		player.y += -2;
 	}
+	if(s && player.y + player.height/2 < canvas.height)
+	{
+		console.log("Moving Up");
+		player.y += 2;
+	}
+	
 	
 	//Update the Screen
 	player.drawRect();
