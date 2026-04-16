@@ -6,6 +6,7 @@ var timer;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
 var player;
+var player2;
 
 //This is used to stop the player from moving through obstacles.
 var prevX;

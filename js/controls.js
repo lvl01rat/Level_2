@@ -1,7 +1,8 @@
 //Define Booleans for each key
 var w = false;
 var s = false;
-
+var up = false;
+var down = false;
 //Add Event Listeners
 document.addEventListener("keydown", press);
 document.addEventListener("keyup", release);
@@ -10,7 +11,7 @@ document.addEventListener("keyup", release);
 function press(e)
 {
 	//---This logs key codes into the browser's console.
-	//console.log("Pressed" + e.keyCode);
+	//console.log("Pressed" + e.key);
 	
 	if(e.keyCode == 87)
 	{
@@ -19,6 +20,14 @@ function press(e)
 	if(e.keyCode == 83)
 	{
 		s = true;
+	}
+
+	if(e.key == "ArrowUp") {
+		up = true;
+	}
+
+	if(e.key == "ArrowDown") {
+		down = true;
 	}
 }
 
@@ -34,5 +43,13 @@ function release(e)
 	if(e.keyCode == 83)
 	{
 		s = false;
+	}
+
+	if(e.key == "ArrowUp") {
+		up = false;
+	}
+
+	if(e.key == "ArrowDown") {
+		down = false;
 	}
 }
