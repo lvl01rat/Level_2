@@ -55,7 +55,13 @@ function animate()
 	context.font = "20px Georgia";
 	context.font = "30px Verdana";
 
-	
+	context.strokeStyle = 'black';
+	context.lineWidth = 5;
+
+	context.beginPath();
+	context.moveTo(520, 1000); //start
+	context.lineTo(520, 0); //end
+	context.stroke();
 
 	//Move the Player to the right
 	if(w && player.y - player.height/2 > 0)
