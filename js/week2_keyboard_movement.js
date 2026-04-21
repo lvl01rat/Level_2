@@ -12,6 +12,7 @@ var cp;
 var cp2;
 var p1Wins = 0;
 var p2Wins = 0;
+var img = document.getElementById("ric");
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -47,7 +48,9 @@ function animate()
 {
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	
+
+	//DRAW IT YOU PIECE OF SHIT OH MY GOD
+	context.drawImage(img = document.getElementById("ric"), ball.x, ball.y, ball.width, ball.height);
 	
 	context.fillText("Player 1: || Player 2:", 10, 50);
 	context.fillText(p1Wins, 144, 50);
@@ -169,8 +172,9 @@ function animate()
 	
 	//Update the Screen
 	player.drawRect();
-	ball.drawCircle();
+	//ball.drawCircle();
 	player2.drawRect();
+	context.drawImage();
 
 	// cp.x = ball.x;// - ball.width;// player.x;
 	// cp.y = ball.y - ball.height/2;//player.y + player.height/6;
