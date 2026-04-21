@@ -10,6 +10,8 @@ var player2;
 var ball;
 var cp;
 var cp2;
+var p1Wins = 0;
+var p2Wins = 0;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -47,6 +49,14 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	
+	context.fillText("Player 1: || Player 2:", 10, 50);
+	context.fillText(p1Wins, 144, 50);
+	context.fillText(p2Wins, 333, 50);
+	context.font = "20px Georgia";
+	context.font = "30px Verdana";
+
+	
+
 	//Move the Player to the right
 	if(w && player.y - player.height/2 > 0)
 	{
@@ -87,14 +97,22 @@ function animate()
 
 		ball.x = 500
 		ball.y = 450
-		console.log("how did you let that happen???")
+		console.log("how did you let that happen P1???")
+
+		p2Wins++
+
+		console.log(p2Wins)
 	}
 
 	if(ball.x - ball.width/2 > canvas.width) {
 
 		ball.x = 500
 		ball.y = 450
-		console.log("how did you let that happen???")
+		console.log("how did you let that happen P2???")
+
+		p1Wins++
+
+		console.log(p1Wins)
 	}
 
 
