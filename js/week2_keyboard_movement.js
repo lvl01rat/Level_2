@@ -52,7 +52,7 @@ function animate()
 	//DRAW IT YOU PIECE OF SHIT OH MY GOD
 	context.drawImage(img = document.getElementById("ric"), ball.x, ball.y, ball.width, ball.height);
 	
-	context.fillText("Player 1: || Player 2:", 10, 50);
+	context.fillText("Player 1:    ||    Player 2:", 10, 50);
 	context.fillText(p1Wins, 144, 50);
 	context.fillText(p2Wins, 333, 50);
 	context.font = "20px Georgia";
